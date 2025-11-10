@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import profilePic from "../assets/profile1.jpg"; // 👈 replace with your actual image path
-
+import profilePic from "../assets/profile1.jpg";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const [isRotated, setIsRotated] = useState(false);
 
@@ -27,8 +27,8 @@ const Hero = () => {
       </motion.div>
 
       {/* Right: Hero Text */}
-      <motion.div
-        className="text-center md:text-left max-w-xl"
+  <motion.div whileHover={{ scale: 1.1 }}      
+    className="text-center md:text-left max-w-xl"
         initial={{ opacity: 0, x: 60 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
@@ -41,14 +41,14 @@ const Hero = () => {
           A passionate <b>Full Stack Developer</b> skilled in React.js, Java, and Spring Boot.  
           I love turning ideas into functional, elegant web applications.
         </p>
-        <motion.a
-          href="/projects"
-          whileHover={{ scale: 1.1 }}
-          className="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300"
-        >
-          View My Projects 🚀
-        </motion.a>
-      </motion.div>
+    
+  <Link
+    to="/projects"
+    className="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300"
+  >
+    View My Projects 🚀
+  </Link>
+</motion.div>
     </section>
   );
 };
